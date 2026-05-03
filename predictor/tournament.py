@@ -1,7 +1,8 @@
 """
-2026 FIFA World Cup group-stage draw and knockout-bracket helpers.
+Demo 2026 FIFA World Cup group-stage draw.
 
-Groups are based on the December 2025 official draw.  The bracket
+These groups are placeholders for development/testing and should be
+replaced with the official FIFA group draw before production use. The bracket
 follows the standard 48-team / 12-group / Round-of-32 format:
   - Top 2 from each group advance automatically   (24 teams)
   - Best 8 third-place finishers also advance      ( 8 teams)

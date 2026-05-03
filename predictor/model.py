@@ -16,6 +16,7 @@ For each match (team A vs team B):
   * ``elo_diff_sq``    – squared ELO difference (captures non-linearity).
   * ``elo_avg``        – mean of both ratings (proxy for match quality).
   * ``is_knockout``    – 1 if the match is a knockout tie, 0 otherwise.
+  
 
 Class labels
 ------------
@@ -79,7 +80,7 @@ class MatchPredictor:
         elo_a: float, elo_b: float, is_knockout: bool = False
     ) -> list[float]:
         diff = elo_a - elo_b
-        return [diff, diff**2, (elo_a + elo_b) / 2.0, float(is_knockout)]
+        return [diff, diff**2, abs(diff), (elo_a + elo_b) / 2.0, float(is_knockout)]
 
     # ------------------------------------------------------------------
     # Public API
