@@ -75,11 +75,12 @@ def generate_training_data(
         elo_b = float(random.choice(elo_pool) + rng.integers(-25, 26))
 
         lambda_a, lambda_b = _expected_goals(elo_a, elo_b)
+        goals_a = int(rng.poisson(lambda_a))
+        goals_b = int(rng.poisson(lambda_b))
+        is_knockout = int(random.random() < knockout_fraction)
         if is_knockout:
             lambda_a *= 0.9  # fewer goals in knockout matches
             lambda_b *= 0.9 # (calibration based on historical data)
-        goals_a = int(rng.poisson(lambda_a))
-        goals_b = int(rng.poisson(lambda_b))
 
         if goals_a > goals_b:
             result = 2  # win for A
